@@ -1,0 +1,31 @@
+server:
+  port : 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://marzougasaif:UDGbwiSuEAgU1JNm@cluster0.vx7fxsv.mongodb.net/app
+      database: app
+  application:
+    name: "Book"
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    allowed-origins: "http://localhost:8000"
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+  file:
+    path: .
+    name: myapp.log
+
+gateway:
+  address: 127.0.0.1

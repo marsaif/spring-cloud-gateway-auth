@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d3fa7650-49a6-42bf-a970-db6f578a179b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/config/FilterConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/config/GatewayProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/filters/GatewayIPFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/services/mappers/BookMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/myapp.p12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp.log" beforeDir="false" afterPath="$PROJECT_DIR$/myapp.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/spring_app/config/MapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/config/MapperConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/spring_app/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/controllers/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/spring_app/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/entities/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/spring_app/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/spring_app/services/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/spring_app/services/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NNLWvmYmO89KHUUmA07fj2pJ7o" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Seifeddine Marzouga/Desktop/Microservices/gateway-service-config&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="SpringAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.spring_app.SpringAppApplication" />
+      <module name="spring_app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.spring_app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SpringAppApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3fa7650-49a6-42bf-a970-db6f578a179b" name="Changes" comment="" />
+      <created>1679499633135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679499633135</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

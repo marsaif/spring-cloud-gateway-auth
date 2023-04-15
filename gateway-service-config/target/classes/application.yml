@@ -1,0 +1,47 @@
+server:
+  port : 8000
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: "Gateway"
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      routes:
+        - id: authors_route
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/authors/**
+          metadata:
+            allowedRoles: USER
+          filters:
+            - AuthenticationFilter
+        - id: books_route
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/books/**
+          metadata:
+            allowedRoles: ADMIN
+          filters:
+            - AuthenticationFilter
+  data:
+    mongodb:
+      uri: mongodb+srv://marzougasaif:UDGbwiSuEAgU1JNm@cluster0.vx7fxsv.mongodb.net/app
+      database: app
+
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # 86400000 # a day
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
