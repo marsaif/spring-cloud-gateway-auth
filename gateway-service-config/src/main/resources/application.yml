@@ -16,7 +16,7 @@ spring:
           predicates:
             - Path=/authors/**
           metadata:
-            allowedRoles: USER
+            allowedRoles: ADMIN
           filters:
             - AuthenticationFilter
         - id: books_route
@@ -24,9 +24,13 @@ spring:
           predicates:
             - Path=/books/**
           metadata:
-            allowedRoles: ADMIN
+            allowedRoles: USER
           filters:
             - AuthenticationFilter
+        - id: images_route
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/images/**
   data:
     mongodb:
       uri: mongodb+srv://marzougasaif:UDGbwiSuEAgU1JNm@cluster0.vx7fxsv.mongodb.net/app

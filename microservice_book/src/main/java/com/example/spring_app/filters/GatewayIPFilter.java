@@ -25,7 +25,6 @@ public class GatewayIPFilter extends GenericFilterBean {
         if (gatewayProperties.getAddress().equals(remoteAddr)) {
             chain.doFilter(request, response);
         }
-
     }
 
 }

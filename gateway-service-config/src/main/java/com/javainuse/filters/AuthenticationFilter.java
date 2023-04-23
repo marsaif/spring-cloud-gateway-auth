@@ -1,5 +1,6 @@
 package com.javainuse.filters;
 
+import com.javainuse.entities.User;
 import com.javainuse.exceptions.ForbiddenException;
 import com.javainuse.exceptions.JwtException;
 import com.javainuse.repositories.UserRepository;
@@ -28,7 +29,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     private final RouteValidator validator;
     private final JwtService jwtService;
 
-    private final UserRepository userRepository ;
+    private final UserRepository userRepository;
 
     public AuthenticationFilter(RouteValidator validator, JwtService jwtService, UserRepository userRepository) {
         super(Config.class);
@@ -41,44 +42,44 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
 
-        if (validator.isSecured.test(exchange.getRequest())) {
-            final ServerHttpRequest request = exchange.getRequest();
-            final HttpHeaders headers = request.getHeaders();
+            if (validator.isSecured.test(exchange.getRequest())) {
+                final ServerHttpRequest request = exchange.getRequest();
+                final HttpHeaders headers = request.getHeaders();
 
-            if (!headers.containsKey(HttpHeaders.AUTHORIZATION)) {
-                throw new ForbiddenException("missing authorization header");
-            }
-
-            String authHeader = headers.get(HttpHeaders.AUTHORIZATION).get(0);
-            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                throw new ForbiddenException("missing token");
-            }
-
-            try {
-                String token = authHeader.substring(7);
-                String username = jwtService.extractUsername(token);
-                UserDetails userDetails = userRepository.findByUsername(username).orElseThrow(() -> new ForbiddenException("User not found"));
-
-                Route route = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR);
-                String allowedRoles = (String) route.getMetadata().get("allowedRoles");
-
-                if (allowedRoles != null) {
-                    Collection<? extends GrantedAuthority> userAuthorities = userDetails.getAuthorities();
-                    List<String> allowedRolesList = Arrays.asList(allowedRoles.split(","));
-
-                    if (!userAuthorities.stream().anyMatch(authority -> allowedRolesList.contains(authority.getAuthority()))) {
-                        throw new JwtException("No role ");
-                    }
+                if (!headers.containsKey(HttpHeaders.AUTHORIZATION)) {
+                    throw new ForbiddenException("missing authorization header");
                 }
-                    } catch (ExpiredJwtException e) {
-                throw new JwtException("Token is expired");
-            } catch (SignatureException e) {
-                throw new JwtException("Invalid token signature");
-            } catch (Exception e) {
-                throw new JwtException("No Access");
+
+                String authHeader = headers.get(HttpHeaders.AUTHORIZATION).get(0);
+                if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                    throw new ForbiddenException("missing token");
+                }
+
+                try {
+                    String token = authHeader.substring(7);
+                    String username = jwtService.extractUsername(token);
+                    User userDetails = userRepository.findByUsername(username).orElseThrow(() -> new ForbiddenException("User not found"));
+
+                    Route route = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR);
+                    String allowedRoles = (String) route.getMetadata().get("allowedRoles");
+
+                    if (allowedRoles != null) {
+                        Collection<? extends GrantedAuthority> userAuthorities = userDetails.getAuthorities();
+                        List<String> allowedRolesList = Arrays.asList(allowedRoles.split(","));
+
+                        if (!userAuthorities.stream().anyMatch(authority -> allowedRolesList.contains(authority.getAuthority()))) {
+                            throw new JwtException("No role ");
+                        }
+                    }
+                } catch (ExpiredJwtException e) {
+                    throw new JwtException("Token is expired");
+                } catch (SignatureException e) {
+                    throw new JwtException("Invalid token signature");
+                } catch (Exception e) {
+                    throw new JwtException("No Access");
+                }
             }
-        }
-        return chain.filter(exchange);
+            return chain.filter(exchange);
         });
     }
 
