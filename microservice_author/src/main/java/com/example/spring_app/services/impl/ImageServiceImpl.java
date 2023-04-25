@@ -4,18 +4,16 @@ import com.example.spring_app.entities.Image;
 import com.example.spring_app.exceptions.NotFoundException;
 import com.example.spring_app.repositories.ImageRepository;
 import com.example.spring_app.services.ImageService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.UrlResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.*;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -29,13 +27,13 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public List<Image> getAllImages() {
-        return imageRepository.findAll();
+    public Page<Image> getAllImages(Pageable pageable) {
+        return imageRepository.findAll(pageable);
     }
 
     @Override
-    public Resource getImageById(String id) {
-        Image image = imageRepository.findById(id).orElseThrow(() -> new NotFoundException("Image", "id"));
+    public Resource getImageByName(String name) {
+        Image image = imageRepository.findByName(name).orElseThrow(() -> new NotFoundException("Image", "name"));
 
         try {
             Path file = root.resolve(image.getName());

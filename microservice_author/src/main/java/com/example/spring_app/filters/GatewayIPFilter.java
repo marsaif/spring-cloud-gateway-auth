@@ -23,7 +23,7 @@ public class GatewayIPFilter extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         String remoteAddr = request.getRemoteAddr();
-        if (gatewayProperties.getAddress().equals(remoteAddr)) {
+        if (remoteAddr == null ||  gatewayProperties.getAddress().equals(remoteAddr)) {
             chain.doFilter(request, response);
         }
 

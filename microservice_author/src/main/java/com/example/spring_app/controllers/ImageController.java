@@ -4,6 +4,7 @@ import com.example.spring_app.entities.Image;
 import com.example.spring_app.models.apiResponse.ApiResponse;
 import com.example.spring_app.services.ImageService;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,15 +24,15 @@ public class ImageController {
         }
 
         @GetMapping
-        public ResponseEntity<ApiResponse<List<Image>>> getAllImages() {
-            return ResponseEntity.ok(new ApiResponse(imageService.getAllImages()));
+        public ResponseEntity<ApiResponse<List<Image>>> getAllImages(Pageable pageable) {
+            return ResponseEntity.ok(new ApiResponse(imageService.getAllImages(pageable)));
         }
 
-        @GetMapping("/{id}")
-        public ResponseEntity<Resource> getImageById(@PathVariable String id) {
+        @GetMapping("/{name}")
+        public ResponseEntity<Resource> getImageById(@PathVariable String name) {
             return ResponseEntity.ok()
                     .contentType(MediaType.IMAGE_JPEG)
-                    .body(imageService.getImageById(id));
+                    .body(imageService.getImageByName(name));
         }
 
         @PostMapping

@@ -31,13 +31,13 @@ public class BookController {
     }
 
     @Operation(summary = "Get all Books")
-    @GetMapping("/")
+    @GetMapping("/admin/")
     public ResponseEntity<ApiResponse<Page<Book>>> getAll(Pageable pageable) {
         return ResponseEntity.ok().body(new ApiResponse(bookService.findAll(pageable)));
     }
 
     @Operation(summary = "Get a Books by their ID")
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<ApiResponse<Book>> getUserById(@PathVariable String id) {
         logger.info("Fetching Book with id {}", id);
         Book book = this.bookService.getBookById(id);
@@ -46,7 +46,7 @@ public class BookController {
     }
 
     @Operation(summary = "Add Book")
-    @PostMapping("/")
+    @PostMapping("/user/")
     public ResponseEntity<ApiResponse<Book>> addBook(@Valid @RequestBody BookDto bookDto) {
         logger.info("Adding Book {}", bookDto);
         Book book = this.bookService.addBook(bookDto);
@@ -55,7 +55,7 @@ public class BookController {
     }
 
     @Operation(summary = "Delete Book")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/user/{id}")
     public ResponseEntity<ApiResponse<String>> deleteUser(@PathVariable String id) {
         logger.warn("Deleting Book with id {}", id);
         this.bookService.deleteBook(id);
@@ -64,7 +64,7 @@ public class BookController {
     }
 
     @Operation(summary = "Update Book")
-    @PutMapping("/{id}")
+    @PutMapping("/user/{id}")
     public ResponseEntity<ApiResponse<Book>> updateUser(@PathVariable String id, @RequestBody @Valid BookDto bookDto) {
         logger.info("Updating Book with id {} and data {}", id, bookDto);
         Book book = this.bookService.updateBook(id, bookDto);

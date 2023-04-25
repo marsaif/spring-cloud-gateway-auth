@@ -15,7 +15,6 @@ import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -68,9 +67,14 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                         List<String> allowedRolesList = Arrays.asList(allowedRoles.split(","));
 
                         if (!userAuthorities.stream().anyMatch(authority -> allowedRolesList.contains(authority.getAuthority()))) {
-                            throw new JwtException("No role ");
+                            throw new JwtException("No role");
                         }
                     }
+                    ServerHttpRequest modifiedRequest = exchange.getRequest().mutate()
+                            .header(HttpHeaders.AUTHORIZATION, authHeader)
+                            .build();
+
+                    return chain.filter(exchange.mutate().request(modifiedRequest).build());
                 } catch (ExpiredJwtException e) {
                     throw new JwtException("Token is expired");
                 } catch (SignatureException e) {
