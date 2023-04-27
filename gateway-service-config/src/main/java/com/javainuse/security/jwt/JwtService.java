@@ -1,4 +1,4 @@
-package com.javainuse.security;
+package com.javainuse.security.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

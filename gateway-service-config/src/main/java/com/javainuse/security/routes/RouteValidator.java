@@ -1,9 +1,5 @@
-package com.javainuse.routes;
+package com.javainuse.security.routes;
 
-import com.javainuse.entities.Role;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 

@@ -3,5 +3,5 @@ package com.javainuse.entities;
 public enum Role {
     USER,
     ADMIN ,
-    RELAY_POINT_AGENT
+    RELAY_POINT_AGENT //todo check
 }

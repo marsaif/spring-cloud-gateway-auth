@@ -1,4 +1,4 @@
-package com.javainuse.models;
+package com.javainuse.models.apiRequest;
 
 import com.javainuse.entities.Role;
 import jakarta.validation.constraints.NotBlank;

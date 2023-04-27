@@ -1,7 +1,7 @@
-package com.javainuse.Controllers;
+package com.javainuse.restApi;
 
 import com.javainuse.entities.User;
-import com.javainuse.models.UserDto;
+import com.javainuse.models.apiRequest.UserDto;
 import com.javainuse.models.apiResponse.ApiResponse;
 import com.javainuse.services.AuthService;
 import com.javainuse.services.impl.AuthServiceImpl;

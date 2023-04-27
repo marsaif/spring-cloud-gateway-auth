@@ -1,9 +1,9 @@
 package com.javainuse.config;
 
-import com.javainuse.filters.AuthenticationFilter;
+import com.javainuse.security.filters.AuthenticationFilter;
 import com.javainuse.repositories.UserRepository;
-import com.javainuse.routes.RouteValidator;
-import com.javainuse.security.JwtService;
+import com.javainuse.security.routes.RouteValidator;
+import com.javainuse.security.jwt.JwtService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

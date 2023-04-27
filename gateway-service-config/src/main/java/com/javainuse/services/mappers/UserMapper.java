@@ -1,7 +1,7 @@
 package com.javainuse.services.mappers;
 
 import com.javainuse.entities.User;
-import com.javainuse.models.UserDto;
+import com.javainuse.models.apiRequest.UserDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 

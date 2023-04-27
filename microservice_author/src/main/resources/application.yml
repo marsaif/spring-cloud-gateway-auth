@@ -1,9 +1,7 @@
 server:
   port : 8001
 
-image:
-  upload:
-    directory: classpath:static/images
+
 
 eureka:
   client:

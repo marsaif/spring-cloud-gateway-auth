@@ -63,6 +63,7 @@ public class ImageServiceImpl implements ImageService {
         Image image = new Image();
 
         String fileName = UUID.randomUUID() + "." + getFileExtension(file.getOriginalFilename());
+
         image.setName(fileName);
         imageRepository.save(image);
 

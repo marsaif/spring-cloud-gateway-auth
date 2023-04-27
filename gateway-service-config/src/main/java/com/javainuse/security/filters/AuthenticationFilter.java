@@ -1,11 +1,11 @@
-package com.javainuse.filters;
+package com.javainuse.security.filters;
 
 import com.javainuse.entities.User;
 import com.javainuse.exceptions.ForbiddenException;
 import com.javainuse.exceptions.JwtException;
 import com.javainuse.repositories.UserRepository;
-import com.javainuse.routes.RouteValidator;
-import com.javainuse.security.JwtService;
+import com.javainuse.security.routes.RouteValidator;
+import com.javainuse.security.jwt.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

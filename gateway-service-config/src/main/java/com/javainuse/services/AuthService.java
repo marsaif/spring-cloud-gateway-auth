@@ -1,7 +1,7 @@
 package com.javainuse.services;
 
 import com.javainuse.entities.User;
-import com.javainuse.models.UserDto;
+import com.javainuse.models.apiRequest.UserDto;
 
 public interface AuthService {
 

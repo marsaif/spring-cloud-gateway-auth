@@ -12,4 +12,6 @@ public class APIGatewayApplication {
 		SpringApplication.run(APIGatewayApplication.class, args);
 	}
 
+	//com.uberisation.apigateway
+
 }
